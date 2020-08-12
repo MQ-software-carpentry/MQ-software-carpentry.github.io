@@ -1,13 +1,9 @@
-<h2>Binder Redirector - v2</h2>
+<h2>Binder Redirector - v3</h2>
 
 <pre>
 <script> 
  
   // Redirect to Binder Launch page based on referrer
-
-  function timeFunction() {
-    setTimeout(function(){ alert(launch); }, 5000);
-  }
 
   referrer = document.referrer.split('/');
  
@@ -21,6 +17,7 @@
   console.log('repo: ', repo, '\n');
   console.log('launch: ', launch, '\n');
 
+  setTimeout(function(){ alert(launch); }, 3000);
   // window.location.href = launch;
 
 </script>

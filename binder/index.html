@@ -5,6 +5,10 @@
  
   // Redirect to Binder Launch page based on referrer
 
+  function timeFunction() {
+    setTimeout(function(){ alert(launch); }, 5000);
+  }
+
   referrer = document.referrer.split('/');
  
   site = referrer[2];

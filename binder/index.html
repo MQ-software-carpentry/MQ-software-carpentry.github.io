@@ -1,1 +1,26 @@
-redirector
+<h2>Binder Redirector - v1</h2>
+
+<pre>
+<script> 
+ 
+  // Redirect to Binder Launch page based on referrer
+
+  referrer = document.referrer.split('/');
+ 
+  site = referrer[2];
+  user = referrer[3];
+  repo = referrer[4];
+  document.write('site: ', site, '\n');
+  document.write('user: ', user, '\n');
+  document.write('repo: ', repo, '\n');
+
+  launch = 'http://mybinder.org/v2/gh/' + user + '/' + repo + '/master?urlpath=rstudio'
+  document.write('launch: ', launch, '\n');
+
+  console.log('launch: ', launch, '\n');
+
+  // window.location.href = launch;
+
+</script>
+
+<pre>

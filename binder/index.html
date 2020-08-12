@@ -1,6 +1,6 @@
 <html>
  <body>
-<h2>Binder Redirector - v5</h2>
+<h2>Binder Redirector - v6</h2>
 
 <script> 
  
@@ -13,9 +13,10 @@
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
+  branch = referrer[5];  // include extra path
  
   // for the moment we will assume we are using github to host the repo and we want the master branch
-  launch = 'http://mybinder.org/v2/gh/' + user + '/' + repo + '/master?urlpath=rstudio'
+  launch = 'http://mybinder.org/v2/gh/' + user + '/' + repo + '/' + branch;
 
   console.log('site: ', site, '\n');
   console.log('user: ', user, '\n');

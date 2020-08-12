@@ -1,13 +1,12 @@
 <html>
  <body>
-<h2>Binder Redirector - v1</h2>
+<h2 style="text-align:center">Binder Redirector - v1.1</h2>
+
 
 <script> 
  
   // Redirect to Binder Launch page based on information in the referrer url
  
-  
-
   referrer = document.referrer.split('/');
  
   site = referrer[2];
@@ -23,10 +22,22 @@
   console.log('repo: ', repo, '\n');
   console.log('launch: ', launch, '\n');
 
-  setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
-  // window.location.href = launch;
+  //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
+  //window.location.href = launch;
 
 </script>
+  
+  <br><br><br>
+  
+  <h3 style="text-align:center">
+  Binder Link:
+  <script>
+    document.write('<a href="'+launch+'">");
+    document.write(launch, "</a>");
+  </script>
+  
+  </h3>
+  
   
  </body>
 </html>

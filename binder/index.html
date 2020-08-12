@@ -1,15 +1,20 @@
+<html>
+ <body>
 <h2>Binder Redirector - v4</h2>
 
-<pre>
 <script> 
  
-  // Redirect to Binder Launch page based on referrer
+  // Redirect to Binder Launch page based on information in the referrer url
+ 
+  
 
   referrer = document.referrer.split('/');
  
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
+ 
+  // for the moment we will assume we are using github to host the repo and we want the master branch
   launch = 'http://mybinder.org/v2/gh/' + user + '/' + repo + '/master?urlpath=rstudio'
 
   console.log('site: ', site, '\n');
@@ -21,5 +26,6 @@
   // window.location.href = launch;
 
 </script>
-
-<pre>
+  
+ </body>
+</html>

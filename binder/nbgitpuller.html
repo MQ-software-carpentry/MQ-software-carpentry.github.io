@@ -14,6 +14,7 @@
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
+  target =  document.URL.replace(/.*\/target=/, '')
   extra = document.URL.replace(/.*\//, '')
  
   // for the moment we will assume we are using github to host the repo and we want the master branch
@@ -26,7 +27,8 @@
   console.log('site: ', site, '\n');
   console.log('user: ', user, '\n');
   console.log('repo: ', repo, '\n');
- console.log('extra: ', extra, '\n');
+  console.log('extra: ', extra, '\n');
+  console.log('target: ', target, '\n');
   console.log('launch: ', launch, '\n');
 
   //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);

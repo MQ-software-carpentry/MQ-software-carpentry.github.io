@@ -1,48 +1,80 @@
 <html>
  <body>
   
- <br><br><br>
+ <style>
+   body {
+    font: normal 14px Verdana, Arial, sans-serif;
+   }
+ </style>
   
-<h1 style="text-align:center">Binder Redirector - v1.4 (nbgitpuller)</h2>
+<br><br><br>
+  
+<h1 style="text-align:center">Binder Redirector - v1.5</h1>
 
 <script> 
  
   // Redirect to Binder Launch page based on information in the referrer url
   //
-  // inbound url must contain:  ?target=<targeturl-containing-USER-and-REPO>
+  // inbound url must contain:  .*?target=<targeturl-containing-USER-and-REPO>
   // USER and REPO will be replace with info from the referrer (assuming we come from a github READM.md page)
  
   referrer = document.referrer.split('/');
- 
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
-  target =  document.URL.replace(/.*?target=/, '');
  
-  launch = target.replace(/USER/, user).replace(/REPO/, repo);
- 
- 
-  // console.log('site: ', site, '\n');
-  // console.log('user: ', user, '\n');
-  // console.log('repo: ', repo, '\n');
+  console.log('site: ', site, '\n');
+  console.log('user: ', user, '\n');
+  console.log('repo: ', repo, '\n');
   // console.log('extra: ', extra, '\n');
   // console.log('target: ', target, '\n');
   // console.log('launch: ', launch, '\n');
 
   //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
-  setTimeout(function(){ window.location.href = launch;}, 10000);
+  //setTimeout(function(){ window.location.href = launch;}, 10000);
   //window.location.href = launch;
 
 </script>
   
   <br><br><br>
   
-  <p style="text-align:center; font-family: Arial, Helvetica, sans-serif;">
-  Binder Link:
-  <script>
-    document.write('<a href="'+launch+'">');
-    document.write(launch, '</a>');
+  <p style="text-align:center;">
+  
+
+   <script>
+    if (user == "") {
+      document.write("<h2 style='color: red; text-align:center"'>Redirection Failed</h2>"); 
+    }
+    else {
+      
+      target =  document.URL.replace(/.*?target=/, '');
+      launch = target.replace(/USER/, user).replace(/REPO/, repo);
+     
+      document.write('Binder Link: <a href="'+launch+'">');
+      document.write(launch, '</a>');
+      setTimeout(function(){ window.location.href = launch;}, 10000);
+    }
   </script>
+   
+  <div style="text-align: center">
+   
+   <br><br><br>
+   
+   <p>
+   If redirection fails, try disabling your Chrome <em>reduced-referrer-granularity</em> by cutting and pasting the following:
+   
+   <br><br><br>
+    
+   <strong>chrome://flags/#reduced-referrer-granularity</strong>
+    
+   <br><br><br>
+    
+   into Chrome, change it to <em>Disabled</em> - then restart.
+   
+   <br><br><br> 
+   <img src="referrer-disable.png" style="border: 5px solid #AAA">
+    
+  </div>
   
   </p>
   

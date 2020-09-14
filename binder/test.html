@@ -23,12 +23,6 @@
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
-  target =  document.URL.replace(/.*?target=/, '');
- 
-  if (user == "") { alert("Missing GitHub Username"); }
- 
-  launch = target.replace(/USER/, user).replace(/REPO/, repo);
- 
  
   // console.log('site: ', site, '\n');
   // console.log('user: ', user, '\n');
@@ -48,9 +42,15 @@
   <p style="text-align:center;">
   
   <script>
+    document.write('Binder Link:");
     if (user == "") {
-      document.write("Redirection Failed");
+      document.write("Redirection Failed"); 
+    }
     else {
+     
+      target =  document.URL.replace(/.*?target=/, '');
+      launch = target.replace(/USER/, user).replace(/REPO/, repo);
+     
       document.write('Binder Link: <a href="'+launch+'">');
       document.write(launch, '</a>');
       setTimeout(function(){ window.location.href = launch;}, 10000);

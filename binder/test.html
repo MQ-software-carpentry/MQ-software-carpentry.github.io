@@ -9,7 +9,7 @@
  
   // Redirect to Binder Launch page based on information in the referrer url
   //
-  // inbound url must contain:  ?target=<targeturl-containing-USER-and-REPO>
+  // inbound url must contain:  .*?target=<targeturl-containing-USER-and-REPO>
   // USER and REPO will be replace with info from the referrer (assuming we come from a github READM.md page)
  
   referrer = document.referrer.split('/');
@@ -18,6 +18,8 @@
   user = referrer[3];
   repo = referrer[4];
   target =  document.URL.replace(/.*?target=/, '');
+ 
+  if (user == "") { alert("Missing GitHub Username"); }
  
   launch = target.replace(/USER/, user).replace(/REPO/, repo);
  

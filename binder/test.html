@@ -19,14 +19,13 @@
   // USER and REPO will be replace with info from the referrer (assuming we come from a github READM.md page)
  
   referrer = document.referrer.split('/');
- 
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
  
-  // console.log('site: ', site, '\n');
-  // console.log('user: ', user, '\n');
-  // console.log('repo: ', repo, '\n');
+  console.log('site: ', site, '\n');
+  console.log('user: ', user, '\n');
+  console.log('repo: ', repo, '\n');
   // console.log('extra: ', extra, '\n');
   // console.log('target: ', target, '\n');
   // console.log('launch: ', launch, '\n');
@@ -43,11 +42,12 @@
   
   <script>
     document.write('Binder Link:");
+   </script>
+   <script>
     if (user == "") {
       document.write("Redirection Failed"); 
     }
     else {
-     
       target =  document.URL.replace(/.*?target=/, '');
       launch = target.replace(/USER/, user).replace(/REPO/, repo);
      

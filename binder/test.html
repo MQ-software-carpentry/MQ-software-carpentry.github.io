@@ -40,14 +40,13 @@
   
   <p style="text-align:center;">
   
-  <script>
-    document.write("Binder Link: ");
-   </script>
+
    <script>
     if (user == "") {
-      document.write("Redirection Failed"); 
+      document.write("<h1 style='color: red;'>Redirection Failed"</h1>); 
     }
     else {
+      
       target =  document.URL.replace(/.*?target=/, '');
       launch = target.replace(/USER/, user).replace(/REPO/, repo);
      

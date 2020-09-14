@@ -1,0 +1,47 @@
+<html>
+ <body>
+  
+ <br><br><br>
+  
+<h2 style="text-align:center">Binder Redirector - v1.4 (nbgitpuller)</h2>
+
+<script> 
+ 
+  // Redirect to Binder Launch page based on information in the referrer url
+ 
+  referrer = document.referrer.split('/');
+ 
+  site = referrer[2];
+  user = referrer[3];
+  repo = referrer[4];
+  extra = document.URL.replace(/.*\//, '')
+ 
+  // for the moment we will assume we are using github to host the repo and we want the master branch
+  launch = 'http://mybinder.org/v2/gh/' + user + '/' + repo + '/master' + extra;
+
+  console.log('site: ', site, '\n');
+  console.log('user: ', user, '\n');
+  console.log('repo: ', repo, '\n');
+  console.log('launch: ', launch, '\n');
+
+  //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
+  setTimeout(function(){ window.location.href = launch;}, 10000);
+  //window.location.href = launch;
+
+</script>
+  
+  <br><br><br>
+  
+  <p style="text-align:center; font-family: Arial, Helvetica, sans-serif;">
+  Binder Link:
+  <script>
+    document.write('<a href="'+launch+'">');
+    document.write(launch, '</a>');
+  </script>
+  
+  </p>
+  
+  
+ </body>
+</html>
+© 2020 GitHub, Inc.

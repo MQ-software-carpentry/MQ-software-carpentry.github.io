@@ -46,11 +46,14 @@
   <br><br><br>
   
   <p style="text-align:center; font-family: Arial, Helvetica, sans-serif;">
-  Binder Link:
+  
   <script>
+    if (user == "") {
+      document.write("Redirection Failed");
+    else {
+      document.write('Binder Link: <a href="'+launch+'">');
+      document.write(launch, '</a>');
     
-    document.write('<a href="'+launch+'">');
-    document.write(launch, '</a>');
   </script>
    
   <div style="text-align: center">

@@ -14,7 +14,7 @@
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
-  target =  document.URL.replace(/.*\/target=/, '')
+  target =  document.URL.replace(/.*?target=/, '')
   extra = document.URL.replace(/.*\//, '')
  
   // for the moment we will assume we are using github to host the repo and we want the master branch

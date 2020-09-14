@@ -3,29 +3,34 @@
   
  <br><br><br>
   
-<h2 style="text-align:center">Binder Redirector - v1.4</h2>
+<h1 style="text-align:center">Binder Redirector - v1.4 (nbgitpuller)</h2>
 
 <script> 
  
   // Redirect to Binder Launch page based on information in the referrer url
+  //
+  // inbound url must contain:  ?target=<targeturl-containing-USER-and-REPO>
+  // USER and REPO will be replace with info from the referrer (assuming we come from a github READM.md page)
  
   referrer = document.referrer.split('/');
  
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
-  extra = document.URL.replace(/.*\//, '')
+  target =  document.URL.replace(/.*?target=/, '');
  
-  // for the moment we will assume we are using github to host the repo and we want the master branch
-  launch = 'http://mybinder.org/v2/gh/' + user + '/' + repo + '/master' + extra;
-
-  console.log('site: ', site, '\n');
-  console.log('user: ', user, '\n');
-  console.log('repo: ', repo, '\n');
-  console.log('launch: ', launch, '\n');
+  launch = target.replace(/USER/, user).replace(/REPO/, repo);
+ 
+ 
+  // console.log('site: ', site, '\n');
+  // console.log('user: ', user, '\n');
+  // console.log('repo: ', repo, '\n');
+  // console.log('extra: ', extra, '\n');
+  // console.log('target: ', target, '\n');
+  // console.log('launch: ', launch, '\n');
 
   //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
-  setTimeout(function(){ window.location.href = launch;}, 1000);
+  setTimeout(function(){ window.location.href = launch;}, 10000);
   //window.location.href = launch;
 
 </script>

@@ -8,32 +8,29 @@
 <script> 
  
   // Redirect to Binder Launch page based on information in the referrer url
+  //
+  // inbound url must contain:  ?target=<targeturl-containing-USER-and-REPO>
+  // USER and REPO will be replace with info from the referrer (assuming we come from a github READM.md page)
  
   referrer = document.referrer.split('/');
  
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
-  target =  document.URL.replace(/.*?target=/, '')
-  extra = document.URL.replace(/.*\//, '')
+  target =  document.URL.replace(/.*?target=/, '');
  
-  // for the moment we will assume we are using github to host the repo and we want the master branch
-  // launch = 'http://mybinder.org/v2/gh/' + user + '/' + repo + '/master' + extra;
-
-  env_repo = 'https://mybinder.org/v2/gh/MQ-software-carpentry/environment-r-tidyverse/master?urlpath=git-pull%3Frepo%3D'
-  launch = env_repo + 'https%253A%252F%252Fgithub.com%252F' + user + '%252F' + repo + '%26urlpath%3Drstudio%252F%26branch%3Dmaster'
   launch = target.replace(/USER/, user).replace(/REPO/, repo);
  
  
-  console.log('site: ', site, '\n');
-  console.log('user: ', user, '\n');
-  console.log('repo: ', repo, '\n');
+  // console.log('site: ', site, '\n');
+  // console.log('user: ', user, '\n');
+  // console.log('repo: ', repo, '\n');
   // console.log('extra: ', extra, '\n');
   // console.log('target: ', target, '\n');
   // console.log('launch: ', launch, '\n');
 
   //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
-  //setTimeout(function(){ window.location.href = launch;}, 10000);
+  setTimeout(function(){ window.location.href = launch;}, 10000);
   //window.location.href = launch;
 
 </script>
@@ -52,4 +49,4 @@
   
  </body>
 </html>
-© 2020 GitHub, Inc.
+

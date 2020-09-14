@@ -3,7 +3,7 @@
   
  <br><br><br>
   
-<h2 style="text-align:center">Binder Redirector - v1.4 (nbgitpuller)</h2>
+<h1 style="text-align:center">Binder Redirector - v1.4 (nbgitpuller)</h2>
 
 <script> 
  
@@ -22,14 +22,15 @@
 
   env_repo = 'https://mybinder.org/v2/gh/MQ-software-carpentry/environment-r-tidyverse/master?urlpath=git-pull%3Frepo%3D'
   launch = env_repo + 'https%253A%252F%252Fgithub.com%252F' + user + '%252F' + repo + '%26urlpath%3Drstudio%252F%26branch%3Dmaster'
+  launch = target.replace(/USER/, user).replace(/REPO/, repo);
  
  
   console.log('site: ', site, '\n');
   console.log('user: ', user, '\n');
   console.log('repo: ', repo, '\n');
-  console.log('extra: ', extra, '\n');
-  console.log('target: ', target, '\n');
-  console.log('launch: ', launch, '\n');
+  // console.log('extra: ', extra, '\n');
+  // console.log('target: ', target, '\n');
+  // console.log('launch: ', launch, '\n');
 
   //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
   //setTimeout(function(){ window.location.href = launch;}, 10000);

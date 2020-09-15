@@ -9,9 +9,9 @@
   
 <br><br><br>
   
-<h1 style="text-align:center">Binder Redirector - v1.5</h1>
+<h1 style="text-align:center">Binder Redirector - v1.6</h1>
 
-<script> 
+<script>
  
   // Redirect to Binder Launch page based on information in the referrer url
   //
@@ -22,61 +22,97 @@
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
- 
-  console.log('site: ', site, '\n');
-  console.log('user: ', user, '\n');
-  console.log('repo: ', repo, '\n');
-  // console.log('extra: ', extra, '\n');
-  // console.log('target: ', target, '\n');
-  // console.log('launch: ', launch, '\n');
 
-  //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
-  //setTimeout(function(){ window.location.href = launch;}, 10000);
-  //window.location.href = launch;
+  // user = "MQ-software-carpentry";
+  // user = "";
+ 
+  //console.log('site: ', site, '\n');
+  //console.log('user: ', user, '\n');
+  //console.log('repo: ', repo, '\n');
+
+
 
 </script>
   
   <br><br><br>
+
+  <div style="display: none; text-align: center;" id="original">
+    <h2 style='color: red; text-align:center;'>Redirection Failed</h2>
+
+    <p>
+    It appears you have followed the Binder link from the original workshop
+    <p>
+    repository rather than the Binder link in your personal <em>fork</em> of the repository.
+
+    <br><br><br>
+
+    <p>
+    Please return to your personal repository and follow the Binder link again.
+
+    <br><br>
+
+    <p style="font-size: 7px;">
+    <span onClick="launch();">Continue Anyway (you will not be able to push)</span>
+  </div>
+  
+  <div style="display: none; text-align: center;" id="username">
+    GitHub Username: 
+    <input type="text" name="username" onkeyup="user = this.value; console.log('user: ', user, '\n'); ">
+    
+    <input type="submit" value="Launch" onClick="launch();">
+
+
+    <br><br><br><br>
+
+    <span style="font-size: 10px;" onclick="document.getElementById('workaround').style.display = 'block'">Chrome Workaround to Remove this Step</span>
+    <div style="display: none;" id="workaround">
+
+    <br><br><br><br>
+    If this page requests your GitHub username, try disabling your
+    <br>
+    Chrome's <em>reduced-referrer-granularity</em> by cutting and pasting the following:
+    <br><br>
+    
+    
+    <strong>chrome://flags/#reduced-referrer-granularity</strong>
+    
+    <br><br><br>
+    
+    into Chrome, change <em>Reduce default 'referer' header granularity</em> to <em>Disabled</em> - then restart.
+   
+    <br><br><br> 
+    <img src="referrer-disable.png" style="border: 5px solid #AAA">
+  </div>
   
   <p style="text-align:center;">
   
 
    <script>
+
     if (user == "") {
-      document.write("<h2 style='color: red; text-align:center;'>Redirection Failed</h2>"); 
+      document.getElementById("username").style.display = "block";
+    }
+    else if (user == "MQ-software-carpentry") {
+        document.getElementById("original").style.display = "block";
     }
     else {
-      
+      launch();     
+    }
+
+    function launch() {
       target =  document.URL.replace(/.*?target=/, '');
-      launch = target.replace(/USER/, user).replace(/REPO/, repo);
-     
+      launch = target.replace(/USER/, user);
+
       document.write('Binder Link: <a href="'+launch+'">');
       document.write(launch, '</a>');
-      setTimeout(function(){ window.location.href = launch;}, 500);
+
+      //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
+      //window.location.href = launch;
+      //setTimeout(function(){ window.location.href = launch;}, 500);
     }
+        
   </script>
    
-  <div style="text-align: center">
-   
-   <br><br><br>
-   
-   <p>
-   If redirection fails, try disabling your Chrome <em>reduced-referrer-granularity</em> by cutting and pasting the following:
-   
-   <br><br><br>
-    
-   <strong>chrome://flags/#reduced-referrer-granularity</strong>
-    
-   <br><br><br>
-    
-   into Chrome, change it to <em>Disabled</em> - then restart.
-   
-   <br><br><br> 
-   <img src="referrer-disable.png" style="border: 5px solid #AAA">
-    
-  </div>
-  
-  </p>
   
   
  </body>

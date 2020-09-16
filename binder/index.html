@@ -89,7 +89,7 @@
 
    <script>
 
-    if (user == "") {
+    if (user === undefined) {
       document.getElementById("username").style.display = "block";
     }
     else if (user == "MQ-software-carpentry") {
@@ -110,7 +110,6 @@
 
       //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
       //window.location.href = launch;
-      alert("launch Now");
       setTimeout(function(){ window.location.href = launch;}, 3000);
     }
         

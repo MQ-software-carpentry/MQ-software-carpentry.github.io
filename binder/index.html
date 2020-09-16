@@ -93,7 +93,7 @@
       document.getElementById("username").style.display = "block";
     }
     else if (user == "MQ-software-carpentry") {
-        document.getElementById("original").style.display = "block";
+      document.getElementById("original").style.display = "block";
     }
     else {
       launch();     
@@ -102,9 +102,11 @@
     function launch() {
       target =  document.URL.replace(/.*?target=/, '');
       launch = target.replace(/USER/, user);
-
-      // document.write('Binder Link: <a href="'+launch+'">');
-      // document.write(launch, '</a>');
+     
+      console.log('site: ', site, '\n');
+      console.log('user: ', user, '\n');
+      console.log('repo: ', repo, '\n');
+      console.log('launch: ', launch, '\n');
 
       //setTimeout(function(){ alert('Redirect ?'); window.location.href = launch;}, 2000);
       //window.location.href = launch;

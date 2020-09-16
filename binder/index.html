@@ -103,6 +103,9 @@
       target =  document.URL.replace(/.*?target=/, '');
       launch = target.replace(/USER/, user);
      
+      console.log('document.referrer: ', document.referrer);
+      console.log('referrer: ', document.referrer.split('/'));
+                  
       console.log('site: ', site, '\n');
       console.log('user: ', user, '\n');
       console.log('repo: ', repo, '\n');

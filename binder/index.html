@@ -9,7 +9,7 @@
   
 <br><br><br>
   
-<h1 style="text-align:center">Binder Redirector - v1.6.1</h1>
+<h1 style="text-align:center">Binder Launch Redirector - v1.7.0</h1>
 
 <script>
  
@@ -22,8 +22,6 @@
   site = referrer[2];
   user = referrer[3];
   repo = referrer[4];
- 
-  
 
   // user = "MQ-software-carpentry";
   // user = "";
@@ -33,22 +31,22 @@
   <br><br><br>
 
   <div style="display: none; text-align: center;" id="original">
-    <h2 style='color: red; text-align:center;'>Redirection Failed</h2>
+    <h2 style='color: red; text-align:center;'>Binder Launch Not Proceeding</h2>
 
     <p>
-    It appears you have followed the Binder link from the original workshop
+    You have clicked the Binder link from the MQ Software Carpenty workshop repository.
     <p>
-    repository rather than the Binder link in your personal <em>fork</em> of the repository.
+     rather than the Binder link in your personal <em>fork</em> of the repository.
 
     <br><br><br>
 
     <p>
-    Please return to your personal repository and follow that Binder link instead.
+    Please go to your personal repository and click that Binder link instead.
 
     <br><br>
 
     <p style="font-size: 7px;">
-    <span onClick="launch();">Continue Anyway (you will not be able to push)</span>
+    <span onClick="launch();">Continue Anyway (you will not be able to push if you are not an instructor)</span>
   </div>
   
   <div style="display: none; text-align: center;" id="username">
